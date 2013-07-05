@@ -1,12 +1,14 @@
 var express = require('express');
 
 function getContentFromFile(filename){
+try{
 
 var fs = require('fs');
 
-var res = fs.readFileSync(filename, 'utf-8');
- return res;
-
+var res = fs.readFileSync(filename);
+ return res.toString();
+}
+catch(Err){return "Error reading the file " + filename;}
 
 }
 
